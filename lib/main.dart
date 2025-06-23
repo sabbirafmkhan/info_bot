@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/chat_screen.dart';
+import 'package:info_bot/screens/chat_screen.dart';
+import 'package:info_bot/screens/home_screen.dart';
 
 void main() {
-  runApp(InfoBotApp());
+  runApp(const InfoBotApp());
 }
 
 class InfoBotApp extends StatelessWidget {
@@ -12,15 +12,17 @@ class InfoBotApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'InfoBot',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        fontFamily: 'SFPro',
-        scaffoldBackgroundColor: Color(0xFFF9F9FB),
-      ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {'/': (_) => HomeScreen(), '/chat': (_) => ChatScreen()},
+      title: "InfoBot",
+      theme: ThemeData(
+        fontFamily: 'Arial',
+        primaryColor: const Color(0xFF876CFF),
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: const HomeScreen(),
+      routes: {
+        ChatScreen.routeName: (_) => const ChatScreen(),
+      },
     );
   }
 }
